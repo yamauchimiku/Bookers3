@@ -5,6 +5,7 @@
   <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
+    <!--nameフィールドを追加-->
     <div class="field">
       <%= f.label :name %><br />
       <%= f.text_field :name, autofocus: true %>

@@ -3,9 +3,11 @@
 
   <!--form_withに変更-->
   <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+
+    <!--nameフィールドに変更-->
     <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true %>
     </div>
 
     <div class="field">
