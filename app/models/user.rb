@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   # アソシエーションの記載
   has_many :books, dependent: :destroy
+  # refileを使用
+  attachment :image
 end

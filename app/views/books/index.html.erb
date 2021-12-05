@@ -1,0 +1,18 @@
+<h2>New book</h2>
+  <%= form_with model:@book, local:true do |f| %>
+
+    <p>Title</p>
+    <%= f.text_field :title %>
+
+    <p>Option</p>
+    <%= f.text_area :body %><br>
+
+    <%= f.submit "Create Book", class: "btn btn-success mt-2" %>
+  <% end %>
+
+<% @books.each do |book| %>
+<div>
+  <p>Title <%= book.title %></p>
+  <p>Opinion <%= book.body %></p>
+</div>
+<% end %>

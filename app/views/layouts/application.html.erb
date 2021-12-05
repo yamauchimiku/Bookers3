@@ -26,13 +26,13 @@
           <!--ログイン後-->
           <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to "Home", class: "fas fa-home nav-link text-light" %>
+              <%= link_to "Home", user_path(current_user.id), class: "fas fa-home nav-link text-light" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Users", class: "fas fa-users nav-link text-light" %>
+              <%= link_to "Users", users_path, class: "fas fa-users nav-link text-light" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Books", class: "fas fa-book-open nav-link text-light" %>
+              <%= link_to "Books", books_path, class: "fas fa-book-open nav-link text-light" %>
             </li>
             <li class="nav-item">
               <%= link_to "log out", destroy_user_session_path, method: :delete, data: { confirm: '本当にログアウトしますか？' }, class: "fas fa-sign-out-alt nav-link text-light" %>
