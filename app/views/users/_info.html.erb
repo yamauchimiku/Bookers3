@@ -1,0 +1,15 @@
+<table class="table">
+  <!--trは横の一行-->
+  <tr><%= attachment_image_tag user,:myprofile_image_id, fallback: "no_image.jpg", size: "100x100" %></tr>
+  <tr>
+    <!--thとtdは同じだが、thは太字の中央揃えになる-->
+	<th>name</th>
+	<td><%= user.name %></td>
+  </tr>
+  <tr>
+	<th>introduction</th>
+	<td><%= user.information %></td>
+  </tr>
+</table>
+  <!--ユーザー編集画面へのリンク-->
+  <p><%= link_to "",edit_user_path(user), class:"btn btn-outline-secondary btn-block fas fa-user-cog" %></p>
