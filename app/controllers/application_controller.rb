@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    # sign_upの際に、nameのデータが許可される
+    # sign_upの際に、emailのデータが許可される
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
   end
 end
