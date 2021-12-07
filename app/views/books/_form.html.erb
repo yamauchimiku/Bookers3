@@ -1,11 +1,18 @@
 <%= form_with model:book, local:true do |f| %>
-
-  <p>Title</p>
-  <%= f.text_field :title %>
-
-  <p>Option</p>
-  <%= f.text_area :body %><br>
-
-  <%= f.submit "Create Book", class: "btn btn-success mt-2" %>
-
+  <!--form-groupでフォームの大きさを調整-->
+  <div class="form-group">
+    <!--ラベルの名前-->
+    <%= f.label :title %>
+    <!--form-controlをclassに指定-->
+    <!--text_fieldは一行のテキストを入力-->
+    <%= f.text_field :title, class: 'form-control book_title' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :opinion %>
+    <!--長い文章であればtext_area-->
+    <%= f.text_area :body, class: 'form-control book_body' %>
+  </div>
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-success' %>
+  </div>
 <% end %>
