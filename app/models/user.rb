@@ -7,5 +7,6 @@ class User < ApplicationRecord
   # アソシエーションの記載
   has_many :books, dependent: :destroy
   # refileを使用
+  # refileの仕様でidは記載しない
   attachment :myprofile_image
 end
