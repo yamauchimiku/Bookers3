@@ -2,6 +2,7 @@
 <table class='table table-hover'>
   <thead>
     <tr>
+      <th></th>
       <th>Title</th>
       <th>Opinion</th>
       <!--横方向に3つのセルを結合-->
@@ -12,8 +13,13 @@
     <% books.each do |book| %>
       <tr>
         <td>
+          <%= link_to user_path(book.user.id) do %>
+            <%= attachment_image_tag book.user, :myprofile_image_id, fallback: "no_image.jpg", size: "50x50" %>
+          <% end %>
+        </td>
+        <td>
           <%= link_to book_path(book.id) do %>
-          <%= book.title %>
+            <%= book.title %>
           <% end %>
         </td>
         <td><%= book.body %></td>
