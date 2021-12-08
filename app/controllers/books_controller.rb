@@ -8,8 +8,16 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     # current_userはログイン中のユーザーidを取得
     @book.user_id = current_user.id
-    @book.save
-    redirect_to books_path
+    # バリデーションの結果を表示
+    if @book.save
+      # サクセスメッセージの表示
+      flash[:notice] = 'You have created post successfully.'
+      redirect_to book_path(@book)
+    else
+      # renderなのでindexの変数を記載
+      @books = Book.all
+      render "index"
+    end
   end
 
   def show
@@ -24,8 +32,14 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-    @book.update(book_params)
-    redirect_to book_path(@book.id)
+    # バリデーションの結果を表示
+    if @book.update(book_params)
+      # サクセスメッセージの表示
+      flash[:notice] = 'You have updated post successfully.'
+      redirect_to book_path(@book)
+    else
+      render "edit"
+    end
   end
 
   def destroy
