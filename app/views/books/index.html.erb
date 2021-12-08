@@ -1,7 +1,15 @@
 <div class="container mt-3">
+  <% if @book.errors.any? %>
+    <%= @book.errors.count %>prohibited this obj from being saved:
+    <!--箇条書きを作るulとliはセット-->
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li class="text-danger"><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <!--サクセスメッセージの表示-->
   <p id="notice", class="text-success"></p>
-  
   <div class="row">
     <div class="col-lg-3">
       <h2>User info</h2>
