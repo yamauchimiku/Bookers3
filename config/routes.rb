@@ -6,5 +6,10 @@ Rails.application.routes.draw do
   # ルーティングを一括して自動生成
   resources :books
   # onlyで限定
-  resources :users, only: [:index, :show, :edit, :update]
+  # ネストする
+  resources :users, only: [:index, :show, :edit, :update] do
+    resource :relationships, only: [:create, :destroy]
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
+  end
 end
