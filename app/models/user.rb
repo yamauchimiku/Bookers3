@@ -23,11 +23,9 @@ class User < ApplicationRecord
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end
-
   def unfollow(user_id)
     relationships.find_by(followed_id: user_id).destroy
   end
-
   # 引数に渡したユーザをフォローしているかどうかを判定する
   def following?(user)
     followings.include?(user)
